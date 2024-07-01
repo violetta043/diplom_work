@@ -1,29 +1,42 @@
-import './Product-preview.css';
-import logo_product from '../../assets/logo_products.svg';
-import ProductCard from '../../components/ProductCart/ProductCart';
+import "./Product-preview.css";
+import logo_product from "../../assets/logo_products.svg";
+import ProductCard from "../../components/ProductCart/ProductCart";
+import { useState, useEffect } from "react";
+import { API_URL } from "../../constants";
 
 const ProductPreview = () => {
-    const productsCard = [
-        { id: 0, category: 'PC', name: 'Lenovo Y50-70', quantity: 5, price: '25,000' },
-        { id: 1, category: 'Clothes', name: 'Nike M Nk Df Acd21', quantity: 22, price: '4,000' },
-        { id: 2, category: 'Plumbing', name: 'CERSANIT MITO 17', quantity: 1337, price: '5,000' },
-        { id: 3, category: 'PC', name: 'Lenovo Y50-70', quantity: 5, price: '25,000' },
-        { id: 4, category: 'PC', name: 'Lenovo Y50-70', quantity: 5, price: '25,000' },
-        { id: 5, category: 'PC', name: 'Lenovo Y50-70', quantity: 5, price: '25,000' },
-       
-    ];
+  const [products, setProducts] = useState([]);
 
-    return(
-        <div className="ProductPage">
-            <img src={logo_product} className='Product-logo'/>
-            <div className='Container'>
-                <div className='Cards-wrapper'>
-                { productsCard.map(product => <ProductCard key={product.id} product={product} />)}
-                </div>
-            </div>
+  useEffect(() => {
+    getProduct();
+  }, []);
+
+  const getProduct = async () => {
+    try {
+      const response = await fetch(`${API_URL}/posts`);
+
+      if (!response.ok) {
+        throw new Error("Something went wrong");
+      }
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  return (
+    <div className="ProductPage">
+      <img src={logo_product} className="Product-logo" />
+      <div className="Container">
+        <div className="Cards-wrapper">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-    )
-    
-}
+      </div>
+    </div>
+  );
+};
 
-export default ProductPreview; 
+export default ProductPreview;

@@ -1,0 +1,67 @@
+.Product-info {
+    height: 100vh;
+    background-color: #fff;
+    font-family: 'Inter-Medium' ;
+}
+.Product-info-header{
+    display: flex;
+    margin-top: 21px;
+    margin-left: 38px;
+}
+.Product-logo-wrapper{
+    background-color: #05BC52;
+}
+.Product-logo{
+    margin-bottom: 16px;
+}
+.Product-info-name{
+    font-size: 32px;
+    margin-top: 10px;
+    margin-left: 40px;
+}
+.Wrapper-info{
+    display: flex;
+}
+.Wrapper-have{
+    display: flex;
+}
+.info-text{
+    color: #3CD78C;
+    font-size: 36px;
+    margin-left: 8px;
+}
+.lenovo-info{
+    height: 268px;
+    width: 396px;
+    margin: 55px 45px 70px 69px;
+}
+
+.Product-info-price{
+    color: #FC5B00;
+    font-size: 32px;
+    margin-top: 26px;
+    margin-left: 50px;
+}
+.Product-info-quantity{
+    color: #000;
+    font-size: 24px;
+    margin-top: 26px;
+    margin-left: 50px;
+}
+span{
+    font-weight: bold;
+}
+
+.Wrapper-descr{
+    margin-top: 57px;
+    margin-left: 67px;
+    font-size: 24px;
+}
+
+.Product-info-descr-name{
+    font-size: 32px;
+    margin-left: 61px;
+}
+.info{
+    margin-top: 18px;
+}
