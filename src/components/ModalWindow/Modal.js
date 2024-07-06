@@ -32,3 +32,4 @@ export default function AlertDialog({ open, handleClose, handleDelete }) {
       </Dialog>
   );
 }
+
